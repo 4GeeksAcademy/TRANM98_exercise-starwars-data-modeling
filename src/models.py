@@ -20,15 +20,14 @@ class User(Base):
 
 class Character(Base):
     __tablename__ = 'character'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
-    charcter_name = Column(String(250, nullable=False))
+    character_name = Column(String(250), nullable=False)  # Move nullable=False here
     species = Column(String(100))
     gender = Column(String(50))
     description = Column(String(250))
     image_url = Column(String)
     favorites = relationship("Favorite", back_populates="character")
+
 
 class Planet(Base):
     __tablename__ = 'planet'
